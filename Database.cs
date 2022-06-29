@@ -94,50 +94,28 @@ namespace FitnessApp
         {
             string constr;
 
-            // for the connection to
-            // sql server database
             SqlConnection conn;
 
-            // Data Source is the name of the
-            // server on which the database is stored.
-            // The Initial Catalog is used to specify
-            // the name of the database
-            // The UserID and Password are the credentials
-            // required to connect to the database.
             constr = @"Data Source=localhost;Initial Catalog=WorkoutDatabase;User ID=sa;Password=t3ddy123";
 
             conn = new SqlConnection(constr);
 
-            // to open the connection
             conn.Open();
 
-            // use to perform read and write
-            // operations in the database
             SqlCommand cmd;
 
-            // data adapter object is use to
-            // insert, update or delete commands
             SqlDataAdapter adap = new SqlDataAdapter();
 
             string sql = "";
 
-            // use the define sql
-            // statement against our database
             sql = "update LegWorkouts set Name='Hip Thrust' where Name='Hip Thrusts'";
 
-            // use to execute the sql command so we
-            // are passing query and connection object
             cmd = new SqlCommand(sql, conn);
 
-            // associate the insert SQL
-            // command to adapter object
             adap.InsertCommand = new SqlCommand(sql, conn);
 
-            // use to execute the DML statement against
-            // our database
             adap.InsertCommand.ExecuteNonQuery();
 
-            // closing all the objects
             cmd.Dispose();
             conn.Close();
         }
@@ -146,50 +124,28 @@ namespace FitnessApp
         {
             string constr;
 
-            // for the connection to
-            // sql server database
             SqlConnection conn;
 
-            // Data Source is the name of the
-            // server on which the database is stored.
-            // The Initial Catalog is used to specify
-            // the name of the database
-            // The UserID and Password are the credentials
-            // required to connect to the database.
             constr = @"Data Source=localhost;Initial Catalog=WorkoutDatabase;User ID=sa;Password=t3ddy123";
 
             conn = new SqlConnection(constr);
 
-            // to open the connection
             conn.Open();
 
-            // use to perform read and write
-            // operations in the database
             SqlCommand cmd;
 
-            // data adapter object is use to
-            // insert, update or delete commands
             SqlDataAdapter adap = new SqlDataAdapter();
 
             string sql = "";
 
-            // use the define SQL statement
-            // against our database
             sql = "delete from LegWorkouts where Name='Romanian Deadlift'";
 
-            // use to execute the sql command so we
-            // are passing query and connection object
             cmd = new SqlCommand(sql, conn);
 
-            // associate the insert SQL
-            // command to adapter object
             adap.InsertCommand = new SqlCommand(sql, conn);
 
-            // use to execute the DML statement
-            // against our database
             adap.InsertCommand.ExecuteNonQuery();
 
-            // closing all the objects
             cmd.Dispose();
             conn.Close();
         }
